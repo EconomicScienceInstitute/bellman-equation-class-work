@@ -18,7 +18,7 @@
             "request": "launch",
             "program": "${file}",
             "env": {
-                "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}:${workspaceFolder}/src"
+                "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}"
             },
             "stopOnEntry": false,
             "cwd": "${workspaceFolder}",
@@ -29,7 +29,7 @@
             "request": "launch",
             "program": "${file}",
             "env": {
-                "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}:${workspaceFolder}/src"
+                "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}"
             },
             "stopOnEntry": false,
             "cwd": "${workspaceFolder}",

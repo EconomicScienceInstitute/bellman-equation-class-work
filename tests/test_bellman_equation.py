@@ -1,7 +1,7 @@
 """
 writes one test per function of bellman equation
 """
-from src.bellman_equation import knapsackState, actions, transition, immediate_reward, bellman_equation
+from bellman_equation import knapsackState, actions, transition, immediate_reward, bellman_equation
 
 def test_actions():
     """
