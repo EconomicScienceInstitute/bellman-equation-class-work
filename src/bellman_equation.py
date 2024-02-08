@@ -8,29 +8,33 @@ from collections import namedtuple
 WEIGHTS = np.array([1,2,3,4,5,6,7])
 VALUES = np.array([7, 5, 2, 8, 7, 9, 4])
 
-state = namedtuple('state', ['remaining_weight', 'item_idx'])
+knapsackState = namedtuple('knapsackState', ['remaining_weight', 'item_idx'])
 
-def actions(state:state)->List:
+def actions(state: knapsackState)->List:
     """returns a list of actions given our current state
 
     Args:
         state (_type_): _description_
 
     Returns:
-        List: _description_
+        List: returns a list 0 and 1. 0 for leave. 1 for take
     """
-    
-    return []
+    return [0, 1]
 
-def transition(state:state, action):
+def transition(state: knapsackState, action: int):
     """takes in our current state and our choice of action and returns a new state
 
     Args:
         state (_type_): _description_
         action (_type_): _description_
     """
+    if action ==1: # we take the object
+        return knapsackState(state.remaining_weight - WEIGHTS[state.item_idx],
+                             state.item_idx + 1)
+    else: # do not take object
+        return knapsackState(state.remaining_weight, state.item_idx + 1)
 
-def immediate_reward(state:state, action)->float:
+def immediate_reward(state:knapsackState, action)->float:
     """gives us our immediate payoff
 
     Args:
@@ -40,8 +44,9 @@ def immediate_reward(state:state, action)->float:
     Returns:
         float: _description_
     """
+    ...
 
-def bellman_equation(state: state)-> float:
+def bellman_equation(state: knapsackState)-> float:
     """solves dynamic programming
 
     Args:

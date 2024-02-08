@@ -1,7 +1,0 @@
-"""
-writes one test per function of bellman equation
-"""
-from bellman_equation import actions, transition, immediate_reward, get_max_reward
-
-def test_actions():
-    ...

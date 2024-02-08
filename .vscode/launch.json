@@ -3,10 +3,13 @@
     "configurations": [
         {
             "name": "Python: Run",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}:${workspaceFolder}/src"
+            },
             "justMyCode": true
         },
         {
@@ -15,7 +18,18 @@
             "request": "launch",
             "program": "${file}",
             "env": {
-                "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}"
+                "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}:${workspaceFolder}/src"
+            },
+            "stopOnEntry": false,
+            "cwd": "${workspaceFolder}",
+        },
+        {
+            "name": "Python: Test",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "env": {
+                "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}:${workspaceFolder}/src"
             },
             "stopOnEntry": false,
             "cwd": "${workspaceFolder}",
