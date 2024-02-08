@@ -8,7 +8,9 @@ from collections import namedtuple
 WEIGHTS = np.array([1,2,3,4,5,6,7])
 VALUES = np.array([7, 5, 2, 8, 7, 9, 4])
 
-def actions(state)->List:
+state = namedtuple('state', ['remaining_weight', 'item_idx'])
+
+def actions(state:state)->List:
     """returns a list of actions given our current state
 
     Args:
@@ -17,9 +19,10 @@ def actions(state)->List:
     Returns:
         List: _description_
     """
+    
     return []
 
-def transition(state, action):
+def transition(state:state, action):
     """takes in our current state and our choice of action and returns a new state
 
     Args:
@@ -27,7 +30,7 @@ def transition(state, action):
         action (_type_): _description_
     """
 
-def immediate_reward(state, action)->float:
+def immediate_reward(state:state, action)->float:
     """gives us our immediate payoff
 
     Args:
@@ -38,7 +41,7 @@ def immediate_reward(state, action)->float:
         float: _description_
     """
 
-def get_max_reward(state: Tuple[int,int])-> float:
+def bellman_equation(state: state)-> float:
     """solves dynamic programming
 
     Args:
@@ -49,8 +52,8 @@ def get_max_reward(state: Tuple[int,int])-> float:
     """
     max_reward = -np.inf
     for a in actions(state):
-        new_state = transition(state,a)
-        future_reward = get_max_reward(new_state)
+        new_state = transition(state, a)
+        future_reward = bellman_equation(new_state)
         reward = immediate_reward(state, a) + future_reward
         if reward > max_reward:
             max_reward = reward
