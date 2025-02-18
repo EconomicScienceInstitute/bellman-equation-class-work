@@ -1,0 +1,39 @@
+# Core dependencies
+pip>=23.0
+setuptools>=68.0
+wheel>=0.40.0
+
+# Package management and installation
+packaging>=23.0
+distlib>=0.3.7
+
+# HTTP and networking
+requests>=2.31.0
+urllib3>=2.0.0
+
+# Configuration and file handling
+configparser>=5.3.0
+PyYAML>=6.0.1
+
+# Development and testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+black>=23.0  # for code formatting
+flake8>=6.0.0  # for linting
+mypy>=1.5.0  # for type checking
+
+# Documentation
+Sphinx>=7.0.0
+
+# Optional but recommended
+tox>=4.6.0  # for testing in isolated environments
+twine>=4.0.0  # for publishing packages
+build>=1.0.0  # for building packages
+# Data processing and scientific computing
+numpy>=1.24.0
+
+# System monitoring and resource management
+psutil>=5.9.0
+
+# Web application framework
+streamlit>=1.28.0
