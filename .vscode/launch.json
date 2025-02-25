@@ -33,6 +33,22 @@
             },
             "stopOnEntry": false,
             "cwd": "${workspaceFolder}",
+        },
+        {
+            "name": "Python: Streamlit",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "streamlit",
+            "args": [
+                "run",
+                "${file}",
+                "--server.port",
+                "8501"
+            ],
+            "env": {
+                "PYTHONPATH": "${env:PYTHONPATH}:${workspaceFolder}:${workspaceFolder}/src"
+            },
+            "justMyCode": true
         }
     ]
 }
